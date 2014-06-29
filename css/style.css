@@ -8,21 +8,30 @@ header .container, main .container, footer .container {
 	max-width: 855px;
 	margin: auto;
 }
+
 header {
 	background: white;
 	overflow: auto;
 }
-header h1 {
+h1, main .left, footer .contact {
 	float: left;
 	width: 570px;
 }
-header nav {
+header nav, main .right, footer .sitemap {
 	float: right;
 	width: 285px;
 }
+
+
+main .container {
+	overflow: hidden;
+}
+
+
 main {
 	background: white;
 }
+
 
 .tabs a span {
 	display: inline-block;
@@ -38,3 +47,10 @@ main {
 	background: #eee;
 }
 
+footer .sitemap .left {
+    float: left;
+}
+
+footer .sitemap .right {
+    float: right;
+}
