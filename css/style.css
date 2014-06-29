@@ -1,5 +1,6 @@
 body {
 	background: #f9e933;
+	font-family: 'Denk One', sans-serif;
 }
 header, main, footer {
 	min-width: 855px;
@@ -13,7 +14,8 @@ header {
 	background: white;
 	overflow: auto;
 }
-h1, main .left, footer .contact {
+
+main .left, footer .contact {
 	float: left;
 	width: 570px;
 }
@@ -48,9 +50,59 @@ main {
 }
 
 footer .sitemap .left {
-    float: left;
+	float: left;
 }
 
 footer .sitemap .right {
-    float: right;
+	float: right;
 }
+
+
+footer .contact p:nth-child(2) {
+  color: #b33;
+  font-style: italic;
+}
+
+h2, h4, h6 {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+	color: #f00;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+    color: #FF00FF;
+    text-decoration: underline;
+}
+
+h1 {
+	font-family: 'Ubuntu', sans-serif;
+	font-style: italic;
+	font-size: 3em;
+	color: #b33;
+	float: left;
+	width: 570px;
+}
+
+h3 {
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 5px;
+    color: #999;;
+    background: #ddd;
+    padding: 5px;
+    margin: 20px 0 10px 0;
+}
+
+h3:first-child {
+    margin-top: 0;
+}
+
+h5 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.25em;
+    margin-bottom: 20px;
+}
+
