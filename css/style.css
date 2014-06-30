@@ -15,6 +15,7 @@ header {
 	overflow: auto;
 }
 
+
 main .left, footer .contact {
 	float: left;
 	width: 570px;
@@ -58,29 +59,33 @@ main .content {
 }
 
 main .content li {
-    border-radius: 5px;
-    padding: 3px;
-    background: #eff;
-    margin: 0 0 10px 0;
+	border-radius: 5px;
+	padding: 3px;
+	background: #eff;
+	margin: 0 0 10px 0;
+	font-style: italic;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 main .content button {
-  font-weight: bold;
-  padding: 0 3px 0 3px;
-  border-radius: 5px;
-  background: #ccc;
-  cursor: pointer;
-  margin-left: 5px;
-  font-size: 1.3em;
+	font-weight: bold;
+	padding: 0 3px 0 3px;
+	border-radius: 5px;
+	background: #ccc;
+	cursor: pointer;
+	margin-left: 5px;
+	font-size: 1.3em;
 }
 
 
 main .content p {
-    background: yellow;
+	background: yellow;
 }
 
 main .content input {
-    font-size: 1.5em;
+	font-size: 1.5em;
+	font-style: italic;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 footer {
@@ -89,11 +94,11 @@ footer {
 }
 
 footer ul {
-    width: 230px;
+	width: 230px;
 }
 
 li {
-    list-style: none;
+	list-style: none;
 }
 
 footer .sitemap .left {
