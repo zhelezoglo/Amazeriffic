@@ -34,6 +34,14 @@ main {
 	background: white;
 }
 
+main .content {
+	width: 550px;
+	padding: 20px 10px 20px 10px;
+	border-radius: 0 5px 5px 5px;
+	background: #eee;
+	float: left;
+}
+
 
 .tabs a span {
 	display: inline-block;
@@ -49,6 +57,45 @@ main {
 	background: #eee;
 }
 
+main .content li {
+    border-radius: 5px;
+    padding: 3px;
+    background: #eff;
+    margin: 0 0 10px 0;
+}
+
+main .content button {
+  font-weight: bold;
+  padding: 0 3px 0 3px;
+  border-radius: 5px;
+  background: #ccc;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 1.3em;
+}
+
+
+main .content p {
+    background: yellow;
+}
+
+main .content input {
+    font-size: 1.5em;
+}
+
+footer {
+	border-top: 1px solid #ddd;
+	padding: 40px 0 20px 0;
+}
+
+footer ul {
+    width: 230px;
+}
+
+li {
+    list-style: none;
+}
+
 footer .sitemap .left {
 	float: left;
 }
@@ -59,8 +106,8 @@ footer .sitemap .right {
 
 
 footer .contact p:nth-child(2) {
-  color: #b33;
-  font-style: italic;
+	color: #b33;
+	font-style: italic;
 }
 
 h2, h4, h6 {
@@ -74,8 +121,8 @@ a {
 }
 
 a:hover {
-    color: #FF00FF;
-    text-decoration: underline;
+	color: #FF00FF;
+	text-decoration: underline;
 }
 
 h1 {
@@ -88,21 +135,23 @@ h1 {
 }
 
 h3 {
-    font-family: 'Ubuntu', sans-serif;
-    border-radius: 5px;
-    color: #999;;
-    background: #ddd;
-    padding: 5px;
-    margin: 20px 0 10px 0;
+	font-family: 'Ubuntu', sans-serif;
+	border-radius: 5px;
+	color: #999;;
+	background: #ddd;
+	padding: 5px;
+	margin: 20px 0 10px 0;
 }
 
 h3:first-child {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 h5 {
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.25em;
-    margin-bottom: 20px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.25em;
+	margin-bottom: 20px;
 }
+
+
 
