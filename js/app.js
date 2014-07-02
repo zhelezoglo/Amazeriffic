@@ -1,16 +1,6 @@
 var main = function () {
 	"use strict";
 
-	// var toDos = [
-	// "Finish writing this book",
-	// "Take Gracie to the park",
-	// "Answer emails",
-	// "Prep for Monday's class",
-	// "Make up some new ToDos",
-	// "Get Groceries"
-	// ];
-
-
 	var toDos = [{
 		"description" : "Get groceries",
 		"tags"  : [ "shopping", "chores" ]
@@ -40,22 +30,22 @@ var main = function () {
 	} ];
 
 	var organizeByTags = function (toDoObjects) { 
-		console.log("organizeByTags called");
-		var tags = [];
 		var orginized = [];
 
 		toDoObjects.forEach(function(todo){    
 			todo.tags.forEach(function(tag) {
-				if (typeof(orginized[tag]) == "undefined") orginized[tag] = [];
+				if (orginized[tag] === undefined) {orginized[tag] = [];}
 				orginized[tag].push(todo.description);
 			});        
 		});
 		return orginized;
 	};
 
-
+	var descriptionText = "",
+	tagsText = "";
 
 	$(".tabs a span").toArray().forEach(function (element) {
+		
 		$(element).on("click", function() {
 			var $element = $(element),
 			$content,
@@ -64,6 +54,7 @@ var main = function () {
 			$(".tabs a span").removeClass("active");
 			$element.addClass("active");
 			$("main .content").empty();
+
 			if ($element.parent().is(":nth-child(1)")) {
 				$content = $("<ul>");
 				var toDosReversed = Array.prototype.slice.call(toDos);
@@ -77,43 +68,74 @@ var main = function () {
 					$content.append($("<li>").text(todo.description));
 				});
 
-			} else if ($element.parent().is(":nth-child(3)")) { // THIS IS THE TAGS TAB CODE
+			} else if ($element.parent().is(":nth-child(3)")) { 
 				// THIS IS THE TAGS TAB CODE
-				var organizedByTag = organizeByTags(toDos);				
-				// console.log(organizedByTag)
-				for (var tag in organizedByTag) {
-					console.log(tag);
-					var $tagName = $("<h3>").text(tag),
-					$descriptions = $("<ul>");
-					organizedByTag[tag].forEach(function (description) { 
-						var $li = $("<li>").text(description); 
-						$descriptions.append($li);
-					});
-					
-					$("main .content").append($tagName);
-					$("main .content").append($descriptions);
+				var organizedByTag = organizeByTags(toDos), 
+				tag,
+				tagName,
+				$descriptions,
+				appendDescriptions = function (description) { 
+					var $li = $("<li>").text(description); 
+					$descriptions.append($li);
 				};
+
+				// TODO: fix loop
+				for (tag in organizedByTag) {
+					tagName = $("<h3>").text(tag);
+					$descriptions = $("<ul>");
+					organizedByTag[tag].forEach(appendDescriptions);
+
+					$("main .content").append(tagName);
+					$("main .content").append($descriptions);
+				}
+
 
 			} else if ($element.parent().is(":nth-child(4)")) {
                 // input a new to-do
-                $input = $("<input>"),
+                var 
+                $inputLabel = $("<p>").text("Description: "),
+                $tagInput = $("<input>").addClass("tags"),
+                $tagLabel = $("<p>").text("Tags: ");
+                
+                // TODO: add focusing after TAB pressing after fulfilling tags
                 $button = $("<button>").text("+");
 
-                $button.on("click", function () {
-                	if ($input.val() !== "") {
-                		toDos.push($input.val());
-                		$input.val("");
-                	}
+                $input = $("<input>").addClass("description");
+
+                $input.val(descriptionText);
+                
+                // TODO: add prompt
+                $tagInput.val(tagsText);
+
+                $input.on("blur", function () {
+                	descriptionText = $input.val();
                 });
 
-                $content = $("<div>").append($input).append($button);
-               /* Alternatively append() allows multiple arguments so the above
-               can be done with $content = $("<div>").append($input, $button); */
-           }
+                $tagInput.on("blur", function () {
+                	tagsText = $tagInput.val();
+                });
 
-           $("main .content").append($content);
-           return false;
-       });
+                $button.on("click", function () {
+                	if ($input.val() !== "") { 
+                		var description = $input.val(),
+		            // split on the comma
+		            tags = $tagInput.val().split(",");
+		            toDos.push({"description":description, "tags":tags});
+		            // update toDos
+		            $input.val("");
+		            $tagInput.val("");
+		            descriptionText = "";
+		            tagsText = "";
+		        }
+		    });
+
+                $content = $("<div>").append($inputLabel, $input, $button, $tagLabel, $tagInput);
+            }
+
+
+            $("main .content").append($content);
+            return false;
+        }); 
 });
 
 $(".tabs a:first-child span").trigger("click");
