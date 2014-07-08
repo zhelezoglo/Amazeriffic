@@ -118,16 +118,21 @@ var main = function () {
                 $button.on("click", function () {
                 	if ($input.val() !== "") { 
                 		var description = $input.val(),
-		            // split on the comma
-		            tags = $tagInput.val().split(",");
-		            toDos.push({"description":description, "tags":tags});
-		            // update toDos
-		            $input.val("");
-		            $tagInput.val("");
-		            descriptionText = "";
-		            tagsText = "";
-		        }
-		    });
+			            tags;	            
+			            if ($tagInput.val() == "") {
+			            	tags = [];
+			            	tags.push("no tags");
+			            } else {
+			            	tags = $tagInput.val().split(",");	
+			            }
+			            toDos.push({"description":description, "tags":tags});
+			            // update toDos
+			            $input.val("");
+			            $tagInput.val("");
+			            descriptionText = "";
+			            tagsText = "";
+		        	}
+		    	});
 
                 $content = $("<div>").append($inputLabel, $input, $button, $tagLabel, $tagInput);
             }
